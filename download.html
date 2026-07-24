@@ -254,7 +254,7 @@
                         <img id="brand-logo" src="./assets/logo.png" alt="AdoOS Logo" class="h-6 sm:h-7 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
                         <span class="text-xs text-us-blue-primary mono kaomoji-badge font-bold hidden sm:inline">(~^.^)~</span>
                     </div>
-                    <span class="text-[8px] sm:text-[9px] tracking-widest text-slate-500 uppercase font-bold mt-0.5">ENTERPRISE LINUX PLATFORM</span>
+                    <span class="text-[8px] sm:text-[9px] tracking-widest text-slate-500 uppercase font-bold mt-0.5">LIGHTWEIGHT ALPINE-BASED PLATFORM</span>
                 </div>
             </a>
 
@@ -336,7 +336,7 @@
                     Download AdoOS ISO Media
                 </h1>
                 <p id="hero-desc" class="gsap-init-hidden text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
-                    Select your preferred edition and mirror source below. All official images are cryptographically signed with our GPG release key for maximum integrity and security.
+                    Ultra-lightweight, hardened Alpine Linux base coupled with the ABO package manager. Select your preferred mirror below.
                 </p>
             </div>
 
@@ -345,7 +345,7 @@
                 <span class="text-xs uppercase font-bold tracking-wider text-ado-cyan">Latest Release</span>
                 <span class="text-2xl font-extrabold text-white mono mt-0.5">v2.4.0 LTS</span>
                 <span class="text-xs text-slate-300 mt-1 flex items-center gap-1.5">
-                    <i class="fa-solid fa-circle-check text-emerald-400"></i> Supported until 2031
+                    <i class="fa-solid fa-circle-check text-emerald-400"></i> Alpine Base & musl libc
                 </span>
             </div>
         </div>
@@ -364,7 +364,7 @@
                     <div class="md:col-span-2 space-y-5">
                         <div class="flex flex-wrap items-center gap-2">
                             <span class="px-3 py-1 bg-us-blue-primary/10 text-us-blue-primary border border-us-blue-primary/20 rounded-lg text-xs font-bold uppercase tracking-wide">
-                                Standard Desktop & Server ISO
+                                Lightweight Live System
                             </span>
                             <span class="px-3 py-1 bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 rounded-lg text-xs font-bold">
                                 Stable LTS Build
@@ -376,14 +376,14 @@
                         </h2>
 
                         <p class="text-sm text-slate-600 leading-relaxed font-normal">
-                            Includes complete hardened system base, Linux Kernel 6.6 LTS, systemd, apt package manager, and pre-configured Ado Blue visual environment. Ideal for bare-metal servers, workstations, and virtualization.
+                            Includes a minimal hardened system base, Linux Kernel 6.6 LTS, OpenRC init system, musl libc runtime, and the customized ABO package manager. Designed for extreme resource efficiency, security, and fast boot times.
                         </p>
 
                         <!-- ISO Quick Specs Badges -->
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs font-semibold text-slate-700">
                             <div class="p-3 bg-slate-100/80 rounded-xl border border-slate-200/80 flex flex-col gap-1">
                                 <span class="text-[10px] uppercase text-slate-400 font-bold">File Size</span>
-                                <span class="mono font-bold text-slate-900"><i class="fa-solid fa-hard-drive text-us-blue-primary mr-1"></i> ~2.8 GB</span>
+                                <span class="mono font-bold text-slate-900"><i class="fa-solid fa-hard-drive text-us-blue-primary mr-1"></i> ~250 MB</span>
                             </div>
                             <div class="p-3 bg-slate-100/80 rounded-xl border border-slate-200/80 flex flex-col gap-1">
                                 <span class="text-[10px] uppercase text-slate-400 font-bold">Architecture</span>
@@ -391,25 +391,25 @@
                             </div>
                             <div class="p-3 bg-slate-100/80 rounded-xl border border-slate-200/80 flex flex-col gap-1">
                                 <span class="text-[10px] uppercase text-slate-400 font-bold">Kernel</span>
-                                <span class="mono font-bold text-slate-900"><i class="fa-solid fa-gear text-us-blue-primary mr-1"></i> 6.6.12-ado</span>
+                                <span class="mono font-bold text-slate-900"><i class="fa-solid fa-gear text-us-blue-primary mr-1"></i> 6.6 LTS</span>
                             </div>
                             <div class="p-3 bg-slate-100/80 rounded-xl border border-slate-200/80 flex flex-col gap-1">
-                                <span class="text-[10px] uppercase text-slate-400 font-bold">Format</span>
-                                <span class="mono font-bold text-slate-900"><i class="fa-solid fa-compact-disc text-us-blue-primary mr-1"></i> Hybrid ISO</span>
+                                <span class="text-[10px] uppercase text-slate-400 font-bold">Init System</span>
+                                <span class="mono font-bold text-slate-900"><i class="fa-solid fa-bolt text-us-blue-primary mr-1"></i> OpenRC</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Direct Action Buttons (Col 3) -->
                     <div class="flex flex-col gap-3.5 justify-center bg-white/60 p-6 rounded-2xl border border-slate-200/70 shadow-sm">
-                        <a href="https://github.com/owarimono/AdoOS/releases" target="_blank" rel="noopener noreferrer" class="usa-button w-full text-center text-sm py-3.5">
+                        <a href="https://sourceforge.net/projects/adoos/" target="_blank" rel="noopener noreferrer" class="usa-button w-full text-center text-sm py-3.5">
                             <i class="fa-solid fa-download text-base"></i>
-                            <span>Direct ISO Download</span>
+                            <span>SourceForge Mirror</span>
                         </a>
 
                         <a href="https://github.com/owarimono/AdoOS/releases" target="_blank" rel="noopener noreferrer" class="usa-button-secondary w-full text-center text-xs font-semibold text-slate-800 !bg-slate-100 hover:!bg-slate-200/80 !border-slate-300">
-                            <i class="fa-solid fa-magnet text-us-blue-primary"></i>
-                            <span>Download via Torrent (.torrent)</span>
+                            <i class="fa-brands fa-github text-slate-800"></i>
+                            <span>GitHub Direct Release</span>
                         </a>
 
                         <a href="https://t.me/TheAdoOS" target="_blank" rel="noopener noreferrer" class="usa-button-secondary w-full text-center text-xs font-semibold text-slate-800 !bg-sky-50 hover:!bg-sky-100/80 !border-sky-300">
@@ -423,88 +423,6 @@
             </div>
         </section>
 
-        <!-- System Requirements Grid -->
-        <section data-aos="fade-up" data-aos-duration="800">
-            <div class="flex items-center space-x-3 mb-6">
-                <div class="w-8 h-8 rounded-xl bg-us-blue-primary/10 flex items-center justify-center flex-shrink-0">
-                    <i class="fa-solid fa-sliders text-us-blue-primary"></i>
-                </div>
-                <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-                    System Requirements
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- Minimum Specs -->
-                <div class="mac-glass-card p-6 sm:p-7">
-                    <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-200/80">
-                        <h3 class="font-bold text-slate-900 flex items-center gap-2">
-                            <i class="fa-solid fa-gauge text-amber-500"></i>
-                            Minimum System Requirements
-                        </h3>
-                        <span class="mono text-xs text-slate-500 font-semibold">(•_•)</span>
-                    </div>
-
-                    <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
-                        <li class="flex items-center justify-between">
-                            <span class="text-slate-500">Processor:</span>
-                            <span class="font-semibold mono">64-bit x86 Dual Core @ 1.5 GHz</span>
-                        </li>
-                        <li class="flex items-center justify-between">
-                            <span class="text-slate-500">Memory (RAM):</span>
-                            <span class="font-semibold mono">2 GB RAM</span>
-                        </li>
-                        <li class="flex items-center justify-between">
-                            <span class="text-slate-500">Disk Storage:</span>
-                            <span class="font-semibold mono">15 GB Available Drive Space</span>
-                        </li>
-                        <li class="flex items-center justify-between">
-                            <span class="text-slate-500">Display / Graphics:</span>
-                            <span class="font-semibold mono">1024 x 768 Resolution</span>
-                        </li>
-                        <li class="flex items-center justify-between">
-                            <span class="text-slate-500">Installation Media:</span>
-                            <span class="font-semibold mono">USB Drive (4 GB or larger)</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Recommended Specs -->
-                <div class="mac-glass-card p-6 sm:p-7">
-                    <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-200/80">
-                        <h3 class="font-bold text-slate-900 flex items-center gap-2">
-                            <i class="fa-solid fa-rocket text-emerald-500"></i>
-                            Recommended System Requirements
-                        </h3>
-                        <span class="mono text-xs text-slate-500 font-semibold">(^o^)</span>
-                    </div>
-
-                    <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
-                        <li class="flex items-center justify-between">
-                            <span class="text-slate-500">Processor:</span>
-                            <span class="font-semibold mono">64-bit Quad-Core @ 2.4 GHz+</span>
-                        </li>
-                        <li class="flex items-center justify-between">
-                            <span class="text-slate-500">Memory (RAM):</span>
-                            <span class="font-semibold mono">8 GB RAM or higher</span>
-                        </li>
-                        <li class="flex items-center justify-between">
-                            <span class="text-slate-500">Disk Storage:</span>
-                            <span class="font-semibold mono">50 GB NVMe / SSD Storage</span>
-                        </li>
-                        <li class="flex items-center justify-between">
-                            <span class="text-slate-500">Display / Graphics:</span>
-                            <span class="font-semibold mono">1920 x 1080 (FHD) + 3D Hardware Accel</span>
-                        </li>
-                        <li class="flex items-center justify-between">
-                            <span class="text-slate-500">Network:</span>
-                            <span class="font-semibold mono">Broadband Internet Connectivity</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
         <!-- Cryptographic Verification Terminal Box -->
         <section data-aos="fade-up" data-aos-duration="800" class="mac-glass-dark-pro p-6 sm:p-8 rounded-3xl shadow-2xl">
             <div class="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
@@ -512,34 +430,27 @@
                     <span class="w-3.5 h-3.5 rounded-full bg-red-500/90 inline-block shadow-sm"></span>
                     <span class="w-3.5 h-3.5 rounded-full bg-yellow-500/90 inline-block shadow-sm"></span>
                     <span class="w-3.5 h-3.5 rounded-full bg-green-500/90 inline-block shadow-sm"></span>
-                    <span class="text-xs font-medium text-slate-400 ml-2 mono">SHA-256 Checksum & Integrity Verification</span>
+                    <span class="text-xs font-medium text-slate-400 ml-2 mono">SHA-256 Checksum Verification</span>
                 </div>
                 <span class="mono text-xs text-ado-cyan font-bold kaomoji-badge">(•̀ᴗ•́)و</span>
             </div>
 
             <p class="text-xs sm:text-sm text-slate-300 mb-4 font-normal leading-relaxed">
-                Always verify the integrity of your downloaded ISO file before flashing to media. Run the command below in your local terminal:
+                Always verify the integrity of your downloaded ISO image before installation:
             </p>
 
             <div class="bg-slate-950/90 p-4 sm:p-5 rounded-2xl border border-white/10 space-y-3 font-mono text-xs text-slate-200">
                 <div>
-                    <span class="text-slate-500"># Verify SHA-256 Hash:</span>
+                    <span class="text-slate-500"># Command to calculate checksum:</span>
                     <div class="mt-1 text-emerald-400 bg-black/40 p-2.5 rounded-lg border border-white/5 break-all select-all">
                         sha256sum AdoOS-2.4.0-LTS-x86_64.iso
                     </div>
                 </div>
 
                 <div>
-                    <span class="text-slate-500"># Expected SHA-256 Checksum Output:</span>
+                    <span class="text-slate-500"># Expected SHA-256 Output:</span>
                     <div class="mt-1 text-ado-cyan bg-black/40 p-2.5 rounded-lg border border-white/5 break-all select-all">
                         e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-                    </div>
-                </div>
-
-                <div>
-                    <span class="text-slate-500"># Import GPG Public Release Key:</span>
-                    <div class="mt-1 text-slate-300 bg-black/40 p-2.5 rounded-lg border border-white/5 break-all select-all">
-                        gpg --recv-keys 0xA1B2C3D4E5F67890 && gpg --verify AdoOS-2.4.0-LTS-x86_64.iso.sig
                     </div>
                 </div>
             </div>
@@ -571,13 +482,27 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-200/70 text-slate-700">
+                            <!-- SourceForge (Added & Placed First) -->
+                            <tr class="hover:bg-white/60 transition-colors">
+                                <td class="py-4 px-5 font-semibold flex items-center gap-2">
+                                    <i class="fa-solid fa-box-open text-orange-500"></i>
+                                    SourceForge Official Mirror (Primary)
+                                </td>
+                                <td class="py-4 px-5 font-mono text-xs">HTTPS / CDN</td>
+                                <td class="py-4 px-5 text-emerald-600 font-semibold"><i class="fa-solid fa-bolt mr-1"></i> Global High Speed</td>
+                                <td class="py-4 px-5 text-right">
+                                    <a href="https://sourceforge.net/projects/adoos/" target="_blank" rel="noopener noreferrer" class="usa-button text-xs px-4 py-1.5">
+                                        Download <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </a>
+                                </td>
+                            </tr>
                             <tr class="hover:bg-white/60 transition-colors">
                                 <td class="py-4 px-5 font-semibold flex items-center gap-2">
                                     <i class="fa-solid fa-globe text-us-blue-primary"></i>
-                                    GitHub Releases CDN (Global Primary)
+                                    GitHub Releases CDN
                                 </td>
                                 <td class="py-4 px-5 font-mono text-xs">HTTPS / SSL</td>
-                                <td class="py-4 px-5 text-emerald-600 font-semibold"><i class="fa-solid fa-bolt mr-1"></i> 10 Gbps High Speed</td>
+                                <td class="py-4 px-5 text-emerald-600 font-semibold"><i class="fa-solid fa-bolt mr-1"></i> High Speed</td>
                                 <td class="py-4 px-5 text-right">
                                     <a href="https://github.com/owarimono/AdoOS/releases" target="_blank" rel="noopener noreferrer" class="usa-button text-xs px-4 py-1.5">
                                         Download <i class="fa-solid fa-arrow-right text-[10px]"></i>
@@ -594,19 +519,6 @@
                                 <td class="py-4 px-5 text-right">
                                     <a href="https://t.me/TheAdoOS" target="_blank" rel="noopener noreferrer" class="usa-button text-xs px-4 py-1.5">
                                         Open Channel <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-white/60 transition-colors">
-                                <td class="py-4 px-5 font-semibold flex items-center gap-2">
-                                    <i class="fa-brands fa-github text-slate-800"></i>
-                                    AdoOS Source Repository
-                                </td>
-                                <td class="py-4 px-5 font-mono text-xs">Git Source</td>
-                                <td class="py-4 px-5 text-slate-500">Source Tree</td>
-                                <td class="py-4 px-5 text-right">
-                                    <a href="https://github.com/owarimono/AdoOS" target="_blank" rel="noopener noreferrer" class="usa-button-secondary text-xs px-4 py-1.5 !bg-slate-200 !text-slate-800 !border-slate-300">
-                                        View Code <i class="fa-solid fa-arrow-right text-[10px]"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -629,7 +541,7 @@
                         <img src="./assets/logo.png" alt="AdoOS Footer Logo" class="h-7 sm:h-8 w-auto object-contain" />
                     </div>
                     <p class="text-xs text-slate-300 leading-relaxed font-normal">
-                        An official open-source Linux software platform providing security, stability, and standardized infrastructure solutions.
+                        Ultra-lightweight Alpine-based Linux distribution built for performance and simplicity.
                     </p>
                 </div>
 
@@ -649,18 +561,6 @@
                                 <span>AdoOS Telegram</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="https://github.com/owarimono" target="_blank" rel="noopener noreferrer" class="hover:text-ado-cyan transition-colors flex items-center gap-2">
-                                <i class="fa-brands fa-github text-sm text-ado-cyan"></i>
-                                <span>Developer GitHub</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://t.me/WhenWeCry" target="_blank" rel="noopener noreferrer" class="hover:text-ado-cyan transition-colors flex items-center gap-2">
-                                <i class="fa-brands fa-telegram text-sm text-ado-cyan"></i>
-                                <span>Personal Telegram</span>
-                            </a>
-                        </li>
                     </ul>
                 </div>
 
@@ -669,7 +569,7 @@
                     <h4 class="font-bold uppercase tracking-wider text-xs text-slate-300 mb-3">Resources</h4>
                     <ul class="space-y-2 text-xs text-slate-300">
                         <li><a href="index.html#documentation" class="hover:underline hover:text-white transition-all inline-block"><i class="fa-solid fa-book mr-1.5 text-ado-cyan"></i>User Guides & Manuals</a></li>
-                        <li><a href="#" class="hover:underline hover:text-white transition-all inline-block"><i class="fa-solid fa-shield-virus mr-1.5 text-ado-cyan"></i>Security Advisories</a></li>
+                        <li><a href="https://sourceforge.net/projects/adoos/" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-white transition-all inline-block"><i class="fa-solid fa-box-open mr-1.5 text-ado-cyan"></i>SourceForge Page</a></li>
                         <li><a href="https://github.com/owarimono/AdoOS" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-white transition-all inline-block"><i class="fa-solid fa-code-branch mr-1.5 text-ado-cyan"></i>Source Code Mirror</a></li>
                     </ul>
                 </div>
@@ -678,7 +578,7 @@
                 <div>
                     <h4 class="font-bold uppercase tracking-wider text-xs text-slate-300 mb-3">System Status</h4>
                     <p class="text-xs text-slate-300 leading-relaxed mb-2">
-                        POSIX compliant. Active support release window.
+                        Active LTS Release Cycle.
                     </p>
                     <span class="mono text-xs text-us-blue-light font-semibold flex items-center gap-1.5">
                         <i class="fa-solid fa-circle text-emerald-400 text-[9px] animate-pulse"></i>
@@ -691,11 +591,6 @@
             <div class="pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-400 gap-4 text-center md:text-left">
                 <div class="flex items-center space-x-2">
                     <span>© 2026 AdoOS Open Source Initiative. All rights reserved.</span>
-                </div>
-                <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
-                    <a href="#" class="hover:underline hover:text-slate-200">Privacy Policy</a>
-                    <a href="#" class="hover:underline hover:text-slate-200">Accessibility Statement</a>
-                    <a href="#" class="hover:underline hover:text-slate-200">Terms of Service</a>
                 </div>
             </div>
         </div>
