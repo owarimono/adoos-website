@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>The AdoOS Project</title>
+    <title>Download AdoOS — Official ISO Releases & Mirrors</title>
     
     <!-- Browser Favicon -->
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
@@ -44,7 +44,6 @@
 
     <!-- GSAP Animation Engine -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -101,7 +100,7 @@
             will-change: transform, box-shadow;
         }
         .mac-glass-card:hover {
-            transform: translateY(-6px) scale(1.008);
+            transform: translateY(-4px) scale(1.005);
             background: rgba(255, 255, 255, 0.75);
             border-color: rgba(0, 180, 216, 0.5);
             box-shadow: 
@@ -121,8 +120,6 @@
         }
 
         /* --- macOS Animated Interactive Buttons --- */
-        
-        /* Primary macOS Action Button */
         .usa-button {
             position: relative;
             background: linear-gradient(180deg, #0077e6 0%, #005ea2 100%);
@@ -142,7 +139,6 @@
             will-change: transform, box-shadow;
         }
 
-        /* Button Hover Light Reflect Effect */
         .usa-button::before {
             content: '';
             position: absolute;
@@ -165,14 +161,12 @@
             filter: brightness(1.06);
         }
 
-        /* macOS Click Press Down Scale */
         .usa-button:active {
             transform: translateY(0px) scale(0.97);
             box-shadow: 0 4px 10px rgba(0, 113, 227, 0.3);
             filter: brightness(0.95);
         }
 
-        /* Secondary macOS Glass Button */
         .usa-button-secondary {
             position: relative;
             background: rgba(255, 255, 255, 0.14);
@@ -215,12 +209,13 @@
             background: rgba(0, 0, 0, 0.06);
             color: #0071e3;
         }
-        .nav-link:active {
-            transform: scale(0.96);
+        .nav-link.active {
+            background: rgba(0, 94, 162, 0.1);
+            color: #005ea2;
         }
 
-        /* Hero Container Styling */
-        .uswds-hero {
+        /* Hero Header Banner */
+        .download-hero {
             background: linear-gradient(135deg, #0b223d 0%, #001d3d 100%);
             color: #ffffff;
             position: relative;
@@ -236,17 +231,6 @@
             color: #00b4d8;
         }
 
-        /* Floating Chibi Visual */
-        @keyframes floatChibi {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(1.5deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-        .chibi-floating {
-            animation: floatChibi 3.5s ease-in-out infinite;
-            will-change: transform;
-        }
-
         .gsap-init-hidden {
             opacity: 0;
             will-change: opacity, transform;
@@ -260,7 +244,7 @@
         <div class="max-w-6xl mx-auto px-4 py-2.5 flex items-center justify-between">
             
             <!-- Header Brand Container -->
-            <a href="#overview" class="flex items-center space-x-3 group">
+            <a href="index.html" class="flex items-center space-x-3 group">
                 <div class="w-9 h-9 sm:w-10 sm:h-10 bg-us-blue-dark/90 border border-white/30 shadow-md flex-shrink-0 overflow-hidden rounded-xl transition-transform duration-300 group-hover:scale-105 active:scale-95">
                     <img src="./assets/profile.png" alt="AdoOS Profile" class="w-full h-full object-cover" />
                 </div>
@@ -276,19 +260,19 @@
 
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center gap-2 text-xs font-semibold text-slate-800">
-                <a href="#overview" class="nav-link flex items-center gap-1.5">
+                <a href="index.html#overview" class="nav-link flex items-center gap-1.5">
                     <i class="fa-solid fa-compass text-us-blue-primary"></i>
                     Overview
                 </a>
-                <a href="#specifications" class="nav-link flex items-center gap-1.5">
+                <a href="index.html#specifications" class="nav-link flex items-center gap-1.5">
                     <i class="fa-solid fa-microchip text-us-blue-primary"></i>
                     Specs
                 </a>
-                <a href="#downloads" class="nav-link flex items-center gap-1.5">
+                <a href="download.html" class="nav-link active flex items-center gap-1.5">
                     <i class="fa-solid fa-download text-us-blue-primary"></i>
                     Downloads
                 </a>
-                <a href="#documentation" class="nav-link flex items-center gap-1.5">
+                <a href="index.html#documentation" class="nav-link flex items-center gap-1.5">
                     <i class="fa-solid fa-terminal text-us-blue-primary"></i>
                     Docs
                 </a>
@@ -313,16 +297,16 @@
         <!-- Mobile Dropdown Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 pt-2 border-t border-white/20 bg-white/80 backdrop-blur-2xl">
             <nav class="flex flex-col space-y-2 text-sm font-semibold text-slate-800">
-                <a href="#overview" class="mobile-nav-link p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2 active:scale-98">
+                <a href="index.html#overview" class="mobile-nav-link p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2 active:scale-98">
                     <i class="fa-solid fa-compass text-us-blue-primary"></i> Overview
                 </a>
-                <a href="#specifications" class="mobile-nav-link p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2 active:scale-98">
+                <a href="index.html#specifications" class="mobile-nav-link p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2 active:scale-98">
                     <i class="fa-solid fa-microchip text-us-blue-primary"></i> System Specs
                 </a>
-                <a href="#downloads" class="mobile-nav-link p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2 active:scale-98">
+                <a href="download.html" class="mobile-nav-link p-2 rounded-lg bg-slate-100/80 flex items-center gap-2 active:scale-98 text-us-blue-primary">
                     <i class="fa-solid fa-download text-us-blue-primary"></i> ISO Releases
                 </a>
-                <a href="#documentation" class="mobile-nav-link p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2 active:scale-98">
+                <a href="index.html#documentation" class="mobile-nav-link p-2 rounded-lg hover:bg-slate-100 flex items-center gap-2 active:scale-98">
                     <i class="fa-solid fa-terminal text-us-blue-primary"></i> Documentation
                 </a>
                 
@@ -339,192 +323,296 @@
         </div>
     </header>
 
-    <!-- Hero Section with Background Video & Glass Masking -->
-    <section id="overview" class="uswds-hero py-14 sm:py-24 px-4 overflow-hidden relative min-h-[480px] sm:min-h-[560px] flex items-center">
-        
-        <!-- Video Container -->
-        <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-            <div class="absolute top-0 right-0 w-full md:w-[58%] h-full">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover object-center">
-                    <source src="./assets/hero-video.mp4" type="video/mp4">
-                </video>
-                
-                <!-- Left Edge Gradient Mask -->
-                <div class="absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-[#0b223d] via-[#0b223d]/80 to-transparent pointer-events-none"></div>
-            </div>
-            
-            <!-- Global Overlay for Text Readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-[#0b223d] via-[#0b223d]/90 md:via-[#0b223d]/80 to-[#0b223d]/60 sm:to-transparent"></div>
-        </div>
-
-        <div class="max-w-6xl mx-auto w-full relative z-10">
-            <div class="max-w-2xl">
-                
-                <div id="hero-badge" class="gsap-init-hidden inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 text-white text-[11px] sm:text-xs font-semibold px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full shadow-lg mb-4 sm:mb-6">
-                    <i class="fa-solid fa-certificate text-ado-cyan"></i>
-                    <span>Release Version 2.4.0 LTS</span>
-                    <span class="mono text-ado-cyan font-normal ml-1 sm:ml-2 kaomoji-badge" title="Ready">(•̀ᴗ•́)و</span>
+    <!-- Download Hero Header -->
+    <section class="download-hero py-12 sm:py-16 px-4 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+                <div id="hero-badge" class="gsap-init-hidden inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 text-white text-[11px] sm:text-xs font-semibold px-3 py-1 rounded-full shadow-lg mb-4">
+                    <i class="fa-solid fa-download text-ado-cyan"></i>
+                    <span>AdoOS Official Download Center</span>
+                    <span class="mono text-ado-cyan font-normal ml-1 kaomoji-badge">(^o^)/</span>
                 </div>
-
-                <!-- Title & Floating Chibi Image -->
-                <div id="hero-title-container" class="gsap-init-hidden flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 flex-wrap sm:flex-nowrap">
-                    <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white drop-shadow-md">
-                        Ado Operating System
-                    </h1>
-                    <img src="./assets/ado-chibi.png" alt="Ado Chibi Visual" class="chibi-floating h-14 sm:h-16 md:h-20 w-auto object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] select-none pointer-events-none flex-shrink-0" />
-                </div>
-
-                <p id="hero-desc" class="gsap-init-hidden text-sm sm:text-base md:text-lg text-slate-200 leading-relaxed mb-6 sm:mb-8 drop-shadow font-normal">
-                    A secure, hardened, and standardized Linux operating system environment designed for mission-critical IT infrastructure, high-reliability server deployments, and software engineering.
+                <h1 id="hero-title" class="gsap-init-hidden text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white mb-3">
+                    Download AdoOS ISO Media
+                </h1>
+                <p id="hero-desc" class="gsap-init-hidden text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+                    Select your preferred edition and mirror source below. All official images are cryptographically signed with our GPG release key for maximum integrity and security.
                 </p>
+            </div>
 
-                <div id="hero-buttons" class="gsap-init-hidden flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
-                    <a href="#downloads" class="usa-button w-full sm:w-auto">
-                        <i class="fa-solid fa-file-arrow-down"></i>
-                        <span>Download ISO Media</span>
-                        <span class="mono font-normal text-xs text-ado-cyan ml-1 kaomoji-badge">＼(^_^)／</span>
-                    </a>
-                    <a href="#specifications" class="usa-button-secondary w-full sm:w-auto">
-                        <i class="fa-solid fa-sliders"></i>
-                        <span>View Specifications</span>
-                    </a>
-                </div>
-
+            <!-- Version Pill Box -->
+            <div id="hero-pill" class="gsap-init-hidden bg-white/10 backdrop-blur-xl border border-white/20 p-5 rounded-2xl flex flex-col items-center md:items-end flex-shrink-0 text-right">
+                <span class="text-xs uppercase font-bold tracking-wider text-ado-cyan">Latest Release</span>
+                <span class="text-2xl font-extrabold text-white mono mt-0.5">v2.4.0 LTS</span>
+                <span class="text-xs text-slate-300 mt-1 flex items-center gap-1.5">
+                    <i class="fa-solid fa-circle-check text-emerald-400"></i> Supported until 2031
+                </span>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-4 py-12 sm:py-20 w-full flex-grow space-y-14 sm:space-y-24">
-        
-        <!-- Specifications Section -->
-        <section id="specifications">
-            <div data-aos="fade-up" data-aos-duration="800" class="flex items-center justify-between pb-4 mb-6 sm:mb-8">
-                <div class="flex items-center space-x-2.5 sm:space-x-3">
-                    <div class="w-8 h-8 rounded-xl bg-us-blue-primary/10 flex items-center justify-center flex-shrink-0">
-                        <i class="fa-solid fa-cubes text-us-blue-primary"></i>
-                    </div>
-                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-                        System Standards & Architecture
-                    </h2>
-                </div>
-                <span class="mono text-xs text-slate-500 font-semibold kaomoji-badge hidden sm:inline" title="Specs Verified">(~_~)v</span>
-            </div>
+    <!-- Main Content Area -->
+    <main class="max-w-6xl mx-auto px-4 py-10 sm:py-16 w-full flex-grow space-y-12">
 
-            <div class="grid md:grid-cols-3 gap-5 sm:gap-6">
+        <!-- Primary ISO Download Card Section -->
+        <section data-aos="fade-up" data-aos-duration="800">
+            <div class="mac-glass-card p-6 sm:p-10 relative overflow-hidden">
                 
-                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="mac-glass-card p-6 sm:p-7">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-xs font-bold text-us-blue-primary uppercase tracking-wider flex items-center gap-1.5">
-                            <i class="fa-solid fa-shield-halved"></i> Standard 01
-                        </span>
-                        <span class="mono text-xs text-us-blue-primary font-bold kaomoji-badge">(•_•)</span>
-                    </div>
-                    <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">Hardened Security Architecture</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                        Enforces mandatory access controls (SELinux/AppArmor), kernel stack protection, and secure boot profiles by default to comply with strict operational policies.
-                    </p>
-                </div>
+                <div class="grid md:grid-cols-3 gap-8 items-center">
+                    
+                    <!-- Main Specs & Details (Col 1 & 2) -->
+                    <div class="md:col-span-2 space-y-5">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="px-3 py-1 bg-us-blue-primary/10 text-us-blue-primary border border-us-blue-primary/20 rounded-lg text-xs font-bold uppercase tracking-wide">
+                                Standard Desktop & Server ISO
+                            </span>
+                            <span class="px-3 py-1 bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 rounded-lg text-xs font-bold">
+                                Stable LTS Build
+                            </span>
+                        </div>
 
-                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" class="mac-glass-card p-6 sm:p-7">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-xs font-bold text-us-blue-primary uppercase tracking-wider flex items-center gap-1.5">
-                            <i class="fa-solid fa-palette"></i> Standard 02
-                        </span>
-                        <span class="mono text-xs text-us-blue-primary font-bold kaomoji-badge">(⊙_⊙)</span>
-                    </div>
-                    <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">Ado Blue Interface System</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                        Features a standardized high-contrast desktop visual scheme optimized for low visual fatigue, clarity, and rapid system navigation during operation.
-                    </p>
-                </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                            AdoOS 2.4.0 LTS — x86_64 Live Architecture
+                        </h2>
 
-                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300" class="mac-glass-card p-6 sm:p-7">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-xs font-bold text-us-blue-primary uppercase tracking-wider flex items-center gap-1.5">
-                            <i class="fa-solid fa-clock-rotate-left"></i> Standard 03
-                        </span>
-                        <span class="mono text-xs text-us-blue-primary font-bold kaomoji-badge">d(ﾟ-ﾟ*)</span>
+                        <p class="text-sm text-slate-600 leading-relaxed font-normal">
+                            Includes complete hardened system base, Linux Kernel 6.6 LTS, systemd, apt package manager, and pre-configured Ado Blue visual environment. Ideal for bare-metal servers, workstations, and virtualization.
+                        </p>
+
+                        <!-- ISO Quick Specs Badges -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs font-semibold text-slate-700">
+                            <div class="p-3 bg-slate-100/80 rounded-xl border border-slate-200/80 flex flex-col gap-1">
+                                <span class="text-[10px] uppercase text-slate-400 font-bold">File Size</span>
+                                <span class="mono font-bold text-slate-900"><i class="fa-solid fa-hard-drive text-us-blue-primary mr-1"></i> ~2.8 GB</span>
+                            </div>
+                            <div class="p-3 bg-slate-100/80 rounded-xl border border-slate-200/80 flex flex-col gap-1">
+                                <span class="text-[10px] uppercase text-slate-400 font-bold">Architecture</span>
+                                <span class="mono font-bold text-slate-900"><i class="fa-solid fa-microchip text-us-blue-primary mr-1"></i> x86_64</span>
+                            </div>
+                            <div class="p-3 bg-slate-100/80 rounded-xl border border-slate-200/80 flex flex-col gap-1">
+                                <span class="text-[10px] uppercase text-slate-400 font-bold">Kernel</span>
+                                <span class="mono font-bold text-slate-900"><i class="fa-solid fa-gear text-us-blue-primary mr-1"></i> 6.6.12-ado</span>
+                            </div>
+                            <div class="p-3 bg-slate-100/80 rounded-xl border border-slate-200/80 flex flex-col gap-1">
+                                <span class="text-[10px] uppercase text-slate-400 font-bold">Format</span>
+                                <span class="mono font-bold text-slate-900"><i class="fa-solid fa-compact-disc text-us-blue-primary mr-1"></i> Hybrid ISO</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">Long-Term Support (LTS)</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                        Guarantees a 5-year security maintenance window with predictable release cadence and minimal API/ABI breakages for critical workloads.
-                    </p>
+
+                    <!-- Direct Action Buttons (Col 3) -->
+                    <div class="flex flex-col gap-3.5 justify-center bg-white/60 p-6 rounded-2xl border border-slate-200/70 shadow-sm">
+                        <a href="https://github.com/owarimono/AdoOS/releases" target="_blank" rel="noopener noreferrer" class="usa-button w-full text-center text-sm py-3.5">
+                            <i class="fa-solid fa-download text-base"></i>
+                            <span>Direct ISO Download</span>
+                        </a>
+
+                        <a href="https://github.com/owarimono/AdoOS/releases" target="_blank" rel="noopener noreferrer" class="usa-button-secondary w-full text-center text-xs font-semibold text-slate-800 !bg-slate-100 hover:!bg-slate-200/80 !border-slate-300">
+                            <i class="fa-solid fa-magnet text-us-blue-primary"></i>
+                            <span>Download via Torrent (.torrent)</span>
+                        </a>
+
+                        <a href="https://t.me/TheAdoOS" target="_blank" rel="noopener noreferrer" class="usa-button-secondary w-full text-center text-xs font-semibold text-slate-800 !bg-sky-50 hover:!bg-sky-100/80 !border-sky-300">
+                            <i class="fa-brands fa-telegram text-sky-600"></i>
+                            <span>Get Mirror via Telegram</span>
+                        </a>
+                    </div>
+
                 </div>
 
             </div>
         </section>
 
-        <!-- macOS Style Window Terminal -->
-        <section id="documentation" data-aos="fade-up" data-aos-duration="800" class="mac-glass-dark-pro p-5 sm:p-7 rounded-3xl shadow-2xl overflow-hidden">
-            <!-- macOS Window Dots Header -->
-            <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+        <!-- System Requirements Grid -->
+        <section data-aos="fade-up" data-aos-duration="800">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-8 h-8 rounded-xl bg-us-blue-primary/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-sliders text-us-blue-primary"></i>
+                </div>
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                    System Requirements
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Minimum Specs -->
+                <div class="mac-glass-card p-6 sm:p-7">
+                    <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-200/80">
+                        <h3 class="font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-gauge text-amber-500"></i>
+                            Minimum System Requirements
+                        </h3>
+                        <span class="mono text-xs text-slate-500 font-semibold">(•_•)</span>
+                    </div>
+
+                    <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-500">Processor:</span>
+                            <span class="font-semibold mono">64-bit x86 Dual Core @ 1.5 GHz</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-500">Memory (RAM):</span>
+                            <span class="font-semibold mono">2 GB RAM</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-500">Disk Storage:</span>
+                            <span class="font-semibold mono">15 GB Available Drive Space</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-500">Display / Graphics:</span>
+                            <span class="font-semibold mono">1024 x 768 Resolution</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-500">Installation Media:</span>
+                            <span class="font-semibold mono">USB Drive (4 GB or larger)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Recommended Specs -->
+                <div class="mac-glass-card p-6 sm:p-7">
+                    <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-200/80">
+                        <h3 class="font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-rocket text-emerald-500"></i>
+                            Recommended System Requirements
+                        </h3>
+                        <span class="mono text-xs text-slate-500 font-semibold">(^o^)</span>
+                    </div>
+
+                    <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-500">Processor:</span>
+                            <span class="font-semibold mono">64-bit Quad-Core @ 2.4 GHz+</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-500">Memory (RAM):</span>
+                            <span class="font-semibold mono">8 GB RAM or higher</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-500">Disk Storage:</span>
+                            <span class="font-semibold mono">50 GB NVMe / SSD Storage</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-500">Display / Graphics:</span>
+                            <span class="font-semibold mono">1920 x 1080 (FHD) + 3D Hardware Accel</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-slate-500">Network:</span>
+                            <span class="font-semibold mono">Broadband Internet Connectivity</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cryptographic Verification Terminal Box -->
+        <section data-aos="fade-up" data-aos-duration="800" class="mac-glass-dark-pro p-6 sm:p-8 rounded-3xl shadow-2xl">
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
                 <div class="flex items-center space-x-2">
                     <span class="w-3.5 h-3.5 rounded-full bg-red-500/90 inline-block shadow-sm"></span>
                     <span class="w-3.5 h-3.5 rounded-full bg-yellow-500/90 inline-block shadow-sm"></span>
                     <span class="w-3.5 h-3.5 rounded-full bg-green-500/90 inline-block shadow-sm"></span>
-                    <span class="text-xs font-medium text-slate-400 ml-2 mono hidden sm:inline">bash — 80x24</span>
+                    <span class="text-xs font-medium text-slate-400 ml-2 mono">SHA-256 Checksum & Integrity Verification</span>
                 </div>
-                <span class="mono text-[11px] sm:text-xs text-emerald-400 font-bold flex items-center gap-1.5"><i class="fa-solid fa-circle text-[8px] animate-pulse"></i>ONLINE</span>
+                <span class="mono text-xs text-ado-cyan font-bold kaomoji-badge">(•̀ᴗ•́)و</span>
             </div>
-            <pre class="mono text-[11px] sm:text-xs text-slate-200 bg-slate-950/80 p-4 sm:p-5 rounded-2xl border border-white/10 overflow-x-auto leading-relaxed shadow-inner">
-[SYS_CHECK] Initializing AdoOS System Telemetry Diagnostic... <span class="text-ado-cyan font-bold">(>_ <)</span>
-[SUCCESS] Kernel Loaded: Linux 6.6.12-ado-generic #1 SMP PREEMPT_DYNAMIC
-[SUCCESS] Architecture: x86_64 / x86_64-pc-linux-gnu
-[INFO] Package Manager: dpkg / apt (Compliant)
-[INFO] Security Module: Active (Mode: Enforcing)
-[INFO] Memory Allocation: 1.2 GB / 32.0 GB (Optimal)
-[STATUS] All core subsystems fully operational. <span class="text-emerald-400 font-bold">(*^._.^)v</span>
-            </pre>
+
+            <p class="text-xs sm:text-sm text-slate-300 mb-4 font-normal leading-relaxed">
+                Always verify the integrity of your downloaded ISO file before flashing to media. Run the command below in your local terminal:
+            </p>
+
+            <div class="bg-slate-950/90 p-4 sm:p-5 rounded-2xl border border-white/10 space-y-3 font-mono text-xs text-slate-200">
+                <div>
+                    <span class="text-slate-500"># Verify SHA-256 Hash:</span>
+                    <div class="mt-1 text-emerald-400 bg-black/40 p-2.5 rounded-lg border border-white/5 break-all select-all">
+                        sha256sum AdoOS-2.4.0-LTS-x86_64.iso
+                    </div>
+                </div>
+
+                <div>
+                    <span class="text-slate-500"># Expected SHA-256 Checksum Output:</span>
+                    <div class="mt-1 text-ado-cyan bg-black/40 p-2.5 rounded-lg border border-white/5 break-all select-all">
+                        e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+                    </div>
+                </div>
+
+                <div>
+                    <span class="text-slate-500"># Import GPG Public Release Key:</span>
+                    <div class="mt-1 text-slate-300 bg-black/40 p-2.5 rounded-lg border border-white/5 break-all select-all">
+                        gpg --recv-keys 0xA1B2C3D4E5F67890 && gpg --verify AdoOS-2.4.0-LTS-x86_64.iso.sig
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- macOS Style Downloads CTA Section (Minimalist CTA) -->
-        <section id="downloads" data-aos="fade-up" data-aos-duration="800">
-            <div class="mac-glass-card p-8 sm:p-12 relative overflow-hidden text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
-                
-                <!-- Subtle Glow Accent in Background -->
-                <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-us-blue-primary/10 rounded-full blur-3xl pointer-events-none"></div>
-
-                <!-- Left Column: Info & Details -->
-                <div class="space-y-4 max-w-xl">
-                    <!-- Server Status Indicator -->
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 font-semibold text-xs">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span>ISO Mirrors Online & Verified</span>
+        <!-- Official Download Mirrors Table -->
+        <section data-aos="fade-up" data-aos-duration="800">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-xl bg-us-blue-primary/10 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-server text-us-blue-primary"></i>
                     </div>
-
-                    <!-- Title & Subtitle -->
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                        Get AdoOS 2.4.0 LTS
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                        Official ISO Mirror Servers
                     </h2>
-                    <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
-                        Ready to deploy? Access official ISO images, cryptographic checksums, mirror lists, and system requirements on our dedicated download center.
-                    </p>
-
-                    <!-- Quick Specs Pill -->
-                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs font-semibold text-slate-500 pt-1">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-microchip text-us-blue-primary"></i> x86_64 Architecture</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-hard-drive text-us-blue-primary"></i> ~2.8 GB Hybrid ISO</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-check text-us-blue-primary"></i> GPG Signed</span>
-                    </div>
                 </div>
+                <span class="mono text-xs text-slate-500 font-semibold kaomoji-badge hidden sm:inline">(~_~)v</span>
+            </div>
 
-                <!-- Right Column: Navigation Action Buttons -->
-                <div class="flex flex-col sm:flex-row md:flex-col gap-3.5 w-full md:w-auto flex-shrink-0">
-                    <!-- Primary Download Page Link -->
-                    <a href="download.html" class="usa-button text-center px-8 py-3 text-sm">
-                        <i class="fa-solid fa-download text-base"></i>
-                        <span>Go to Download Page</span>
-                        <span class="mono font-normal text-xs text-ado-cyan ml-1 kaomoji-badge">(/◕ヮ◕)/</span>
-                    </a>
-
-                    <!-- Secondary Documentation Link -->
-                    <a href="#documentation" class="usa-button-secondary text-center px-6 py-3 text-xs font-semibold text-slate-700 !bg-black/5 hover:!bg-black/10 !border-slate-300/80">
-                        <i class="fa-solid fa-book-bookmark text-us-blue-primary"></i>
-                        <span>Installation Guide</span>
-                    </a>
+            <div class="mac-glass-card overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs sm:text-sm">
+                        <thead class="bg-slate-100/90 text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200">
+                            <tr>
+                                <th class="py-3.5 px-5">Location / Mirror</th>
+                                <th class="py-3.5 px-5">Protocol</th>
+                                <th class="py-3.5 px-5">Bandwidth</th>
+                                <th class="py-3.5 px-5 text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200/70 text-slate-700">
+                            <tr class="hover:bg-white/60 transition-colors">
+                                <td class="py-4 px-5 font-semibold flex items-center gap-2">
+                                    <i class="fa-solid fa-globe text-us-blue-primary"></i>
+                                    GitHub Releases CDN (Global Primary)
+                                </td>
+                                <td class="py-4 px-5 font-mono text-xs">HTTPS / SSL</td>
+                                <td class="py-4 px-5 text-emerald-600 font-semibold"><i class="fa-solid fa-bolt mr-1"></i> 10 Gbps High Speed</td>
+                                <td class="py-4 px-5 text-right">
+                                    <a href="https://github.com/owarimono/AdoOS/releases" target="_blank" rel="noopener noreferrer" class="usa-button text-xs px-4 py-1.5">
+                                        Download <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-white/60 transition-colors">
+                                <td class="py-4 px-5 font-semibold flex items-center gap-2">
+                                    <i class="fa-solid fa-paper-plane text-sky-500"></i>
+                                    Telegram Distribution Channel
+                                </td>
+                                <td class="py-4 px-5 font-mono text-xs">P2P Cloud</td>
+                                <td class="py-4 px-5 text-emerald-600 font-semibold"><i class="fa-solid fa-bolt mr-1"></i> Unlimited</td>
+                                <td class="py-4 px-5 text-right">
+                                    <a href="https://t.me/TheAdoOS" target="_blank" rel="noopener noreferrer" class="usa-button text-xs px-4 py-1.5">
+                                        Open Channel <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-white/60 transition-colors">
+                                <td class="py-4 px-5 font-semibold flex items-center gap-2">
+                                    <i class="fa-brands fa-github text-slate-800"></i>
+                                    AdoOS Source Repository
+                                </td>
+                                <td class="py-4 px-5 font-mono text-xs">Git Source</td>
+                                <td class="py-4 px-5 text-slate-500">Source Tree</td>
+                                <td class="py-4 px-5 text-right">
+                                    <a href="https://github.com/owarimono/AdoOS" target="_blank" rel="noopener noreferrer" class="usa-button-secondary text-xs px-4 py-1.5 !bg-slate-200 !text-slate-800 !border-slate-300">
+                                        View Code <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-
             </div>
         </section>
 
@@ -580,9 +668,9 @@
                 <div>
                     <h4 class="font-bold uppercase tracking-wider text-xs text-slate-300 mb-3">Resources</h4>
                     <ul class="space-y-2 text-xs text-slate-300">
-                        <li><a href="#" class="hover:underline hover:text-white transition-all inline-block"><i class="fa-solid fa-book mr-1.5 text-ado-cyan"></i>User Guides & Manuals</a></li>
+                        <li><a href="index.html#documentation" class="hover:underline hover:text-white transition-all inline-block"><i class="fa-solid fa-book mr-1.5 text-ado-cyan"></i>User Guides & Manuals</a></li>
                         <li><a href="#" class="hover:underline hover:text-white transition-all inline-block"><i class="fa-solid fa-shield-virus mr-1.5 text-ado-cyan"></i>Security Advisories</a></li>
-                        <li><a href="#" class="hover:underline hover:text-white transition-all inline-block"><i class="fa-solid fa-code-branch mr-1.5 text-ado-cyan"></i>Source Code Mirror</a></li>
+                        <li><a href="https://github.com/owarimono/AdoOS" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-white transition-all inline-block"><i class="fa-solid fa-code-branch mr-1.5 text-ado-cyan"></i>Source Code Mirror</a></li>
                     </ul>
                 </div>
 
@@ -616,8 +704,6 @@
     <!-- Init Animations & Mobile Menu Logic -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            gsap.registerPlugin(ScrollToPlugin);
-
             // Mobile Menu Toggle Logic
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -648,7 +734,6 @@
                 infinite: false,
             });
 
-            // Sync AOS with Lenis Scroll
             lenis.on('scroll', AOS.refresh);
 
             function raf(time) {
@@ -656,25 +741,6 @@
                 requestAnimationFrame(raf);
             }
             requestAnimationFrame(raf);
-
-            // Smooth Scroll Nav Links
-            const navLinks = document.querySelectorAll('a[href^="#"]');
-            navLinks.forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('href');
-                    if (!targetId || targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        e.preventDefault();
-                        lenis.scrollTo(targetElement, {
-                            offset: -80,
-                            duration: 1.2,
-                            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-                        });
-                    }
-                });
-            });
 
             // GSAP Entrance Animations
             const mainTl = gsap.timeline({ defaults: { ease: "power2.out" } });
@@ -688,7 +754,7 @@
                 { opacity: 1, duration: 0.4 }, 
                 "-=0.2"
             )
-            .fromTo("#hero-title-container", 
+            .fromTo("#hero-title", 
                 { opacity: 0, filter: "blur(8px)" }, 
                 { opacity: 1, filter: "blur(0px)", duration: 0.6 }, 
                 "-=0.2"
@@ -698,7 +764,7 @@
                 { opacity: 1, duration: 0.5 }, 
                 "-=0.3"
             )
-            .fromTo("#hero-buttons", 
+            .fromTo("#hero-pill", 
                 { opacity: 0 }, 
                 { opacity: 1, duration: 0.4 }, 
                 "-=0.3"
