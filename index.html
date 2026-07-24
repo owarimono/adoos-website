@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdoOS | Official Enterprise Linux Project</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'us-blue-dark': '#0b223d',
+                        'us-blue-primary': '#005ea2',
+                        'us-blue-light': '#e1f3fe',
+                        'us-gray-dark': '#3d4551',
+                        'us-gray-light': '#f8f9fa',
+                        'ado-cyan': '#00b4d8'
+                    },
+                    fontFamily: {
+                        sans: ['Public Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        mono: ['Source Code Pro', 'Consolas', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Lenis Smooth Scroll Library -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- GSAP (GreenSock) Animation Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        /* Lenis Smooth Scroll Engine Rules */
+        html.lenis, html.lenis body {
+            height: auto;
+        }
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #ffffff;
+            color: #1b1b1b;
+            overflow-x: hidden;
+        }
+        .mono {
+            font-family: 'Source Code Pro', monospace;
+        }
+        .uswds-banner {
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #e6e6e6;
+        }
+        .uswds-header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 4px solid #0b223d;
+        }
+        .uswds-hero {
+            background: linear-gradient(135deg, #0b223d 0%, #003366 100%);
+            color: #ffffff;
+            position: relative;
+        }
+        
+        /* Premium Card Micro-Interactions */
+        .uswds-card {
+            border: 1px solid #adadad;
+            border-top: 4px solid #005ea2;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+            will-change: transform, box-shadow;
+        }
+        .uswds-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 20px 35px -10px rgba(0, 94, 162, 0.22);
+            border-top-color: #00b4d8;
+        }
+
+        /* Fluid Magnetic Buttons */
+        .usa-button {
+            background-color: #005ea2;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.25rem;
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            will-change: transform, background-color, box-shadow;
+        }
+        .usa-button:hover {
+            background-color: #003366;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 94, 162, 0.35);
+        }
+
+        .usa-button-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            font-weight: 700;
+            padding: 0.70rem 1.25rem;
+            border-radius: 0.25rem;
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, background-color;
+        }
+        .usa-button-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        /* Nav Link Hover & Active Effects */
+        .nav-link {
+            position: relative;
+            padding-bottom: 2px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #005ea2;
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Keyframes */
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.08); }
+        }
+        .live-pulse {
+            animation: pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes float-kaomoji {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
+        .kaomoji-float {
+            display: inline-block;
+            animation: float-kaomoji 3.5s ease-in-out infinite;
+        }
+
+        @keyframes kaomoji-pop {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; color: #00b4d8; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        .kaomoji-interactive {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: kaomoji-pop 4s ease-in-out infinite;
+        }
+        .kaomoji-interactive:hover {
+            transform: scale(1.3) rotate(6deg);
+        }
+
+        /* Initial Hero Curtain Opacity Rules for Pre-load Smoothness */
+        .hero-reveal {
+            opacity: 0;
+            will-change: transform, opacity;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Official Government Banner -->
+    <div id="uswds-banner" class="uswds-banner py-2 px-4 text-xs text-us-gray-dark opacity-0">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="font-bold tracking-wider uppercase text-slate-700">Official Project Notice</span>
+                <span class="text-slate-400">|</span>
+                <span>An official enterprise Linux distribution</span>
+                <span class="mono text-us-blue-primary font-bold ml-1 kaomoji-interactive">(b--)_b</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <span class="mono text-[11px] text-slate-600">SYS_STATUS: SECURE_VERIFIED</span>
+                <span class="mono text-[11px] text-us-blue-primary font-semibold live-pulse">(^._.^)ﾉ</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header id="uswds-header" class="uswds-header sticky top-0 z-50 shadow-sm transition-all duration-300 opacity-0">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-us-blue-dark flex items-center justify-center text-white font-bold text-xl border-2 border-us-blue-primary transition-transform duration-500 hover:rotate-12 hover:scale-110">
+                    A
+                </div>
+                <div>
+                    <div class="text-2xl font-extrabold text-us-blue-dark tracking-tight leading-none flex items-center gap-2">
+                        AdoOS <span class="mono text-xs font-normal text-us-blue-primary kaomoji-interactive">(~^.^)~</span>
+                    </div>
+                    <div class="text-xs text-us-gray-dark font-medium uppercase tracking-wider mt-0.5">Enterprise Linux Platform</div>
+                </div>
+            </div>
+
+            <nav class="flex flex-wrap gap-6 text-sm font-semibold text-us-blue-dark">
+                <a href="#overview" class="nav-link hover:text-us-blue-primary transition-all duration-200">Overview</a>
+                <a href="#specifications" class="nav-link hover:text-us-blue-primary transition-all duration-200">System Specs</a>
+                <a href="#downloads" class="nav-link hover:text-us-blue-primary transition-all duration-200">Official ISO Releases</a>
+                <a href="#documentation" class="nav-link hover:text-us-blue-primary transition-all duration-200">Documentation</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="overview" class="uswds-hero py-24 px-4 overflow-hidden relative">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="max-w-3xl">
+                
+                <div id="hero-badge" class="hero-reveal inline-flex items-center space-x-2 bg-us-blue-primary text-white text-xs font-bold px-3 py-1 uppercase tracking-wider mb-6 rounded-sm shadow-md">
+                    <span>Release Version 2.4.0 LTS</span>
+                    <span class="mono text-ado-cyan font-normal kaomoji-interactive">(•̀ᴗ•́)و</span>
+                </div>
+
+                <h1 id="hero-title" class="hero-reveal text-3xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
+                    Ado Operating System <span class="mono text-ado-cyan text-3xl font-normal kaomoji-float">(ง'̀-'́)ง</span>
+                </h1>
+
+                <p id="hero-desc" class="hero-reveal text-lg md:text-xl text-slate-200 leading-relaxed mb-8">
+                    A secure, hardened, and standardized Linux operating system environment designed for mission-critical IT infrastructure, high-reliability server deployments, and software engineering.
+                </p>
+
+                <div id="hero-buttons" class="hero-reveal flex flex-wrap gap-4">
+                    <a href="#downloads" class="usa-button nav-link-btn">
+                        Download Release Media (ISO) <span class="mono font-normal ml-1">＼(^_^)／</span>
+                    </a>
+                    <a href="#specifications" class="usa-button-secondary nav-link-btn">
+                        View Technical Specifications <span class="mono font-normal ml-1">c( O.o )o</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- System Advisory / Official Notice -->
+    <div id="advisory-banner" class="bg-us-blue-light border-l-4 border-us-blue-primary py-4 px-4 shadow-sm opacity-0" data-aos="fade" data-aos-duration="800">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="flex items-start space-x-3">
+                <div class="font-bold text-us-blue-dark text-sm uppercase tracking-wider whitespace-nowrap">Notice:</div>
+                <div class="text-sm text-us-blue-dark leading-normal">
+                    AdoOS 2.4.0 contains updated kernel security patches. Verify cryptographic SHA-256 signatures prior to deployment.
+                </div>
+            </div>
+            <div class="hidden sm:block mono text-xs text-us-blue-dark font-bold kaomoji-interactive">
+                └[∵]┘ [SYS_OK]
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-16 w-full flex-grow space-y-20">
+        
+        <!-- Specifications & Capabilities -->
+        <section id="specifications">
+            <div data-aos="fade-up" data-aos-duration="900" class="flex items-center justify-between border-b-2 border-gray-200 pb-2 mb-8">
+                <h2 class="text-2xl font-bold text-us-blue-dark">
+                    System Standards & Architecture
+                </h2>
+                <span class="mono text-xs text-us-gray-dark kaomoji-interactive">(~_~)v</span>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100" class="uswds-card p-6 bg-white rounded-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-us-blue-primary uppercase tracking-wider">Standard 01</span>
+                        <span class="mono text-xs text-us-blue-primary kaomoji-interactive">(🛡️ -> (º_º))</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-us-blue-dark mb-2">Hardened Security Architecture</h3>
+                    <p class="text-sm text-us-gray-dark leading-relaxed">
+                        Enforces mandatory access controls (SELinux/AppArmor), kernel stack protection, and secure boot profiles by default to comply with strict operational policies.
+                    </p>
+                </div>
+
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="uswds-card p-6 bg-white rounded-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-us-blue-primary uppercase tracking-wider">Standard 02</span>
+                        <span class="mono text-xs text-us-blue-primary kaomoji-interactive">(⊙_⊙)</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-us-blue-dark mb-2">Ado Blue Interface System</h3>
+                    <p class="text-sm text-us-gray-dark leading-relaxed">
+                        Features a standardized high-contrast desktop visual scheme optimized for low visual fatigue, clarity, and rapid system navigation during operation.
+                    </p>
+                </div>
+
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300" class="uswds-card p-6 bg-white rounded-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-us-blue-primary uppercase tracking-wider">Standard 03</span>
+                        <span class="mono text-xs text-us-blue-primary kaomoji-interactive">(⌛ -> (x_x))</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-us-blue-dark mb-2">Long-Term Support (LTS)</h3>
+                    <p class="text-sm text-us-gray-dark leading-relaxed">
+                        Guarantees a 5-year security maintenance window with predictable release cadence and minimal API/ABI breakages for critical workloads.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Official Terminal Diagnostics -->
+        <section id="documentation" data-aos="zoom-in-up" data-aos-duration="1000" class="bg-gray-50 border border-gray-300 p-6 rounded-sm shadow-sm transition-transform duration-300 hover:shadow-md">
+            <div class="flex items-center justify-between mb-4 pb-2 border-b border-gray-200">
+                <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500 inline-block transition-transform hover:scale-125"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block transition-transform hover:scale-125"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500 inline-block transition-transform hover:scale-125"></span>
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-us-blue-dark ml-2">Official Kernel Telemetry Output</h3>
+                </div>
+                <span class="mono text-xs text-us-blue-primary font-bold kaomoji-interactive">(>_ <)</span>
+            </div>
+            <pre class="mono text-xs text-gray-800 bg-white p-4 border border-gray-200 overflow-x-auto leading-relaxed shadow-inner">
+[SYS_CHECK] Initializing AdoOS System Telemetry Diagnostic...  <span class="kaomoji-interactive">(•_•)</span>
+[SUCCESS] Kernel Loaded: Linux 6.6.12-ado-generic #1 SMP PREEMPT_DYNAMIC
+[SUCCESS] Architecture: x86_64 / x86_64-pc-linux-gnu
+[INFO] Package Manager: dpkg / apt (Compliant)  <span class="kaomoji-interactive">(͡° ͜ʖ ͡°)</span>
+[INFO] Security Module: Active (Mode: Enforcing)
+[INFO] Memory Allocation: 1.2 GB / 32.0 GB (Optimal)
+[STATUS] All core subsystems fully operational. <span class="kaomoji-interactive">(*^._.^)v</span>
+            </pre>
+        </section>
+
+        <!-- Downloads Section -->
+        <section id="downloads" data-aos="fade-up" data-aos-duration="1000">
+            <div class="flex items-center justify-between border-b-2 border-gray-200 pb-2 mb-8">
+                <h2 class="text-2xl font-bold text-us-blue-dark">
+                    Official Release Downloads
+                </h2>
+                <span class="mono text-xs text-us-gray-dark kaomoji-interactive">(▼_▼)</span>
+            </div>
+
+            <div class="border border-gray-300 bg-white shadow-sm transition-all duration-300 hover:shadow-lg rounded-sm overflow-hidden">
+                <div class="p-6 bg-us-gray-light border-b border-gray-300 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <div class="flex items-center space-x-3">
+                            <h3 class="text-xl font-bold text-us-blue-dark">AdoOS Enterprise 2.4.0 ISO Media</h3>
+                            <span class="mono text-xs bg-us-blue-light text-us-blue-dark font-bold px-2 py-0.5 rounded border border-us-blue-primary kaomoji-interactive">(p_q)</span>
+                        </div>
+                        <p class="text-xs text-us-gray-dark mt-1">Architecture: x86_64 (64-bit) | ISO Size: 2.8 GB | Format: Hybrid ISO Image</p>
+                    </div>
+                    <a href="#" class="usa-button whitespace-nowrap text-center">
+                        Download ISO File <span class="mono font-normal ml-1">(/◕ヮ◕)/</span>
+                    </a>
+                </div>
+
+                <div class="p-6 space-y-6">
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <label class="block text-xs font-bold uppercase text-us-gray-dark">SHA-256 Cryptographic Checksum</label>
+                            <span class="mono text-xs text-us-blue-primary kaomoji-interactive">(🔍 -> ಠ_ಠ)</span>
+                        </div>
+                        <div class="bg-gray-100 p-3 border border-gray-300 mono text-xs text-us-blue-dark break-all selection:bg-us-blue-primary selection:text-white">
+                            f891a3b902e8812c74d0812908f512701e912b3290b213812d0981b281203b91
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-gray-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-us-blue-dark">Minimum Hardware Requirements</h4>
+                            <span class="mono text-xs text-us-gray-dark kaomoji-interactive">٩(͡๏̯͡๏)۶</span>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs text-us-gray-dark">
+                            <div class="border-l-2 border-us-blue-primary pl-3 py-1 transition-colors hover:bg-us-blue-light/30">
+                                <span class="block font-bold text-us-blue-dark">Processor</span>
+                                2.0 GHz Dual-Core 64-bit
+                            </div>
+                            <div class="border-l-2 border-us-blue-primary pl-3 py-1 transition-colors hover:bg-us-blue-light/30">
+                                <span class="block font-bold text-us-blue-dark">Memory</span>
+                                2.0 GB RAM
+                            </div>
+                            <div class="border-l-2 border-us-blue-primary pl-3 py-1 transition-colors hover:bg-us-blue-light/30">
+                                <span class="block font-bold text-us-blue-dark">Disk Space</span>
+                                25 GB Storage
+                            </div>
+                            <div class="border-l-2 border-us-blue-primary pl-3 py-1 transition-colors hover:bg-us-blue-light/30">
+                                <span class="block font-bold text-us-blue-dark">Display</span>
+                                1024 x 768 Screen
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-us-blue-dark text-white pt-16 pb-8 border-t-4 border-us-blue-primary relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="grid md:grid-cols-3 gap-8 pb-10 border-b border-slate-700 text-sm">
+                <div>
+                    <div class="flex items-center space-x-2 mb-3">
+                        <h4 class="font-bold uppercase tracking-wider text-xs text-slate-300">AdoOS Linux Project</h4>
+                        <span class="mono text-xs text-ado-cyan kaomoji-interactive">(>^.^)></span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        An official open-source Linux software platform providing security, stability, and standardized infrastructure solutions.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2 mb-3">
+                        <h4 class="font-bold uppercase tracking-wider text-xs text-slate-300">Resources & Documentation</h4>
+                        <span class="mono text-xs text-ado-cyan kaomoji-interactive">(⊙_⊙)</span>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li><a href="#" class="hover:underline hover:text-white transition-all hover:translate-x-1 inline-block">User Guides & Manuals</a></li>
+                        <li><a href="#" class="hover:underline hover:text-white transition-all hover:translate-x-1 inline-block">Security Advisories</a></li>
+                        <li><a href="#" class="hover:underline hover:text-white transition-all hover:translate-x-1 inline-block">Source Code Mirror</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2 mb-3">
+                        <h4 class="font-bold uppercase tracking-wider text-xs text-slate-300">System Status</h4>
+                        <span class="mono text-xs text-ado-cyan kaomoji-interactive">d(ﾟ-ﾟ*)</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed mb-2">
+                        POSIX compliant. Active support release window.
+                    </p>
+                    <span class="mono text-xs text-us-blue-light font-semibold">STATUS: OPERATIONAL <span class="kaomoji-interactive">(*^._.^)v</span></span>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+                <div class="flex items-center space-x-2">
+                    <span>© 2026 AdoOS Open Source Initiative. All rights reserved.</span>
+                    <span class="mono text-xs text-slate-500 kaomoji-interactive">(/.-)</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:underline hover:text-slate-200">Privacy Policy</a>
+                    <a href="#" class="hover:underline hover:text-slate-200">Accessibility Statement</a>
+                    <a href="#" class="hover:underline hover:text-slate-200">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Custom Lenis + GSAP Hero Reveal Architecture -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Register GSAP ScrollTo Plugin
+            gsap.registerPlugin(ScrollToPlugin);
+
+            // 1. Initialize Lenis Ultra-Smooth Custom Scroll Engine
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential Ease Out
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                mouseMultiplier: 1.0,
+                smoothTouch: false,
+                touchMultiplier: 2,
+                infinite: false,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // 2. Smooth Navigation Tabs & Anchor Scrolling Integrated with Lenis Engine
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (!targetId || targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Offset for sticky header
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        lenis.scrollTo(targetElement, {
+                            offset: -80,
+                            duration: 1.5,
+                            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+                        });
+                    }
+                });
+            });
+
+            // 3. Professional Hero Stagger Entrance Sequence (GSAP Timeline)
+            const heroTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+            heroTl
+                .to("#uswds-banner", { opacity: 1, duration: 0.6 })
+                .to("#uswds-header", { opacity: 1, duration: 0.6 }, "-=0.3")
+                .fromTo("#hero-badge", 
+                    { opacity: 0, y: -25, scale: 0.95 }, 
+                    { opacity: 1, y: 0, scale: 1, duration: 0.8 }, 
+                    "-=0.2"
+                )
+                .fromTo("#hero-title", 
+                    { opacity: 0, y: 35, filter: "blur(8px)" }, 
+                    { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.0 }, 
+                    "-=0.5"
+                )
+                .fromTo("#hero-desc", 
+                    { opacity: 0, y: 25 }, 
+                    { opacity: 1, y: 0, duration: 0.8 }, 
+                    "-=0.6"
+                )
+                .fromTo("#hero-buttons", 
+                    { opacity: 0, y: 20 }, 
+                    { opacity: 1, y: 0, duration: 0.8 }, 
+                    "-=0.5"
+                )
+                .to("#advisory-banner", { opacity: 1, duration: 0.6 }, "-=0.4");
+
+            // 4. Initialize AOS Scroll-Triggered Animations for Remaining Content
+            AOS.init({
+                duration: 900,
+                easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                once: true,
+                offset: 50
+            });
+        });
+    </script>
+
+</body>
+</html>
